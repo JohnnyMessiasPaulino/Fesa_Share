@@ -19,7 +19,7 @@ public class Conexao {
     private final ResourceBundle BUNDLE = ResourceBundle.getBundle("derb", new Locale("pt", "BR"));
     private static Conexao conexao;
 
-    private Conexao() {
+    public Conexao() {
     }
 
     public static Conexao getInstance() {
@@ -31,7 +31,7 @@ public class Conexao {
 
     public Connection getConnection() throws ClassNotFoundException, SQLException {
         Class.forName("org.apache.derby.jdbc.ClientDriver");
-        Connection connection = DriverManager.getConnection(BUNDLE.getString("url"), BUNDLE.getString("usuario"), BUNDLE.getString("senha"));
+        Connection connection = DriverManager.getConnection("jdbc:sqlserver://fesashare354.database.windows.net:1433;database=FesaShare;user=fesa_admin@fesashare354;password=F3$4_2022;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;");
         return connection;
     }
 }

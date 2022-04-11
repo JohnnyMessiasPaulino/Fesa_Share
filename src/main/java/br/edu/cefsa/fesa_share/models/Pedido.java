@@ -5,6 +5,7 @@
 package br.edu.cefsa.fesa_share.models;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -15,11 +16,14 @@ public class Pedido implements Serializable{
     public Pedido() {
     }
 
-    public Pedido(int codigo, Float preco, Pagamento pagamento) {
+    public Pedido(int codigo, Float preco, Pagamento pagamento, Float precoAluguel, LocalDateTime dataPedido) {
         this.codigo = codigo;
         this.preco = preco;
         this.pagamento = pagamento;
+        this.precoAluguel = precoAluguel;
+        this.dataPedido = dataPedido;
     }
+
     
     private int codigo;
     private Float preco;
@@ -27,7 +31,26 @@ public class Pedido implements Serializable{
     private Usuario locador = new Usuario();
     private Usuario locatario = new Usuario();        
     private Pagamento pagamento;
+    private Float precoAluguel;
+    private LocalDateTime dataPedido;
 
+    public Float getPrecoAluguel() {
+        return precoAluguel;
+    }
+
+    public void setPrecoAluguel(Float precoAluguel) {
+        this.precoAluguel = precoAluguel;
+    }
+
+    public LocalDateTime getDataPedido() {
+        return dataPedido;
+    }
+
+    public void setDataPedido(LocalDateTime dataPedido) {
+        this.dataPedido = dataPedido;
+    }
+
+    
     public int getCodigo() {
         return codigo;
     }
